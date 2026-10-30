@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Prepara tus fotografías para impresión en medidas estándar y 300 DPI, directamente en tu navegador.">
+  <title>FotoLista OSS — Prepara fotos para imprimir</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <header class="topbar">
+    <a class="logo" href="#inicio"><span class="logo-icon" aria-hidden="true">▣</span> FotoLista <span class="oss">OSS</span></a>
+    <a href="https://github.com/new" target="_blank" rel="noopener noreferrer" class="top-link">Publicar en GitHub ↗</a>
+  </header>
+
+  <main id="inicio" class="container">
+    <div class="intro">
+      <p class="eyebrow">FOTOS LISTAS PARA IMPRIMIR</p>
+      <h1>De tu foto a la medida exacta.</h1>
+      <p class="subtitle">Prepara una o varias fotografías en JPG a <strong>300 DPI</strong>. Gratis, sin instalar programas y sin subir las fotos a un servidor.</p>
+    </div>
+
+    <section class="workspace" aria-label="Preparar fotografías">
+      <div class="panel">
+        <div class="section-heading"><span class="step">01</span><h2>Elige tus fotografías</h2></div>
+        <div id="dropzone" class="dropzone" tabindex="0" role="button" aria-label="Seleccionar fotografías desde tu computadora">
+          <div class="drop-illustration" aria-hidden="true">⇧</div>
+          <strong>Arrastra imágenes aquí</strong>
+          <span>o haz clic para seleccionar archivos</span>
+          <small>JPG, PNG y WebP · Hasta 10 imágenes por lote</small>
+          <input id="fileInput" type="file" accept="image/jpeg,image/png,image/webp" multiple hidden>
+        </div>
+        <div id="selection" class="selection" aria-live="polite">Todavía no has seleccionado fotografías.</div>
+      </div>
+
+      <div class="panel">
+        <div class="section-heading"><span class="step">02</span><h2>Configura la impresión</h2></div>
+        <div class="field-grid">
+          <label class="field">Medida de impresión
+            <select id="sizePreset">
+              <option value="10x15">10 × 15 cm</option>
+              <option value="15x20">15 × 20 cm</option>
+              <option value="20x30">20 × 30 cm</option>
+              <option value="21x15">21 × 15 cm</option>
+              <option value="30x40">30 × 40 cm</option>
+              <option value="30x45">30 × 45 cm</option>
+              <option value="20x20">20 × 20 cm</option>
+            </select>
+          </label>
+          <label class="field">Orientación
+            <select id="orientation">
+              <option value="portrait">Vertical</option>
+              <option value="landscape">Horizontal</option>
+            </select>
+          </label>
+          <label class="field">Encuadre
+            <select id="fitMode">
+              <option value="contain">Foto completa (con bordes si hace falta)</option>
+              <option value="cover">Llenar todo (recorte central)</option>
+            </select>
+          </label>
+          <label class="field">Color de los bordes
+            <select id="backgroundColor">
+              <option value="#ffffff">Blanco</option>
+              <option value="#111827">Negro</option>
+              <option value="#e5e7eb">Gris claro</option>
+            </select>
+          </label>
+        </div>
+        <div class="settings-foot">
+          <span id="dimensions" class="dimensions">1181 × 1772 píxeles · 300 DPI</span>
+          <span>Salida: JPG de alta calidad</span>
+        </div>
+        <button id="convertButton" class="convert" disabled>Preparar fotografías</button>
+        <p id="status" class="status" role="status" aria-live="polite">Selecciona por lo menos una imagen para comenzar.</p>
+      </div>
+    </section>
+
+    <div class="feature-row">
+      <div><span aria-hidden="true">✓</span><b>Privacidad</b><p>Las fotos se procesan localmente en tu navegador.</p></div>
+      <div><span aria-hidden="true">✓</span><b>Sin deformaciones</b><p>Conserva la proporción original de cada foto.</p></div>
+      <div><span aria-hidden="true">✓</span><b>300 DPI</b><p>JPG con metadatos de densidad para impresión.</p></div>
+    </div>
+    <p class="footnote"><strong>Nota:</strong> asignar 300 DPI no agrega detalles a una imagen pequeña. Si tu fotografía tiene poca resolución, el resultado impreso podría verse borroso. El modo «Llenar todo» puede cortar partes de la imagen.</p>
+  </main>
+  <footer>FotoLista OSS · Software libre con licencia MIT · Versión inicial 0.1.0</footer>
+</body>
+</html>
